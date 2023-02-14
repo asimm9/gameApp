@@ -83,10 +83,10 @@ class GameList extends ConsumerWidget {
             });
       },
       error: ((error, stackTrace) {
-        return const Center();
+        return Text(error.toString());
       }),
       loading: () {
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }

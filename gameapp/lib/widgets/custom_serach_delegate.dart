@@ -97,12 +97,20 @@ class CustomSearchDelegate extends SearchDelegate {
               );
             })
         : const Center(
-            child: Text("Aradığınızı Bulamadım"),
+            child: Text(
+              "Thers is no game found.",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
           );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text(
+        'No game has been serached',
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+    );
   }
 }

@@ -14,11 +14,11 @@ class GameDetail extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    AsyncValue<Map<String, dynamic>?> map =
+    AsyncValue<Map<String?, dynamic>?> map =
         ref.watch(gameDetailProvider(currentGame));
     return map.when(
       data: (data) {
-        var currentGame = data;
+        Map<String?, dynamic>? currentGame = data;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,7 +29,7 @@ class GameDetail extends ConsumerWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage(currentGame?['backgroundImage']),
+                      image: NetworkImage(currentGame?['background_image']),
                     ),
                   ),
                 ),
@@ -114,7 +114,6 @@ class GameDetail extends ConsumerWidget {
       loading: () {
         return const Center(child: CircularProgressIndicator());
       },
-      skipError: true,
     );
   }
 }

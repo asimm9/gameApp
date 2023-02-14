@@ -4,16 +4,16 @@ class GameModel {
   GameModel({
     this.id,
     this.name,
-    this.backgroundImage,
     this.metacritic,
     this.genres,
+    this.backgroundImage,
   });
 
   final int? id;
   final String? name;
-  final String? backgroundImage;
   final int? metacritic;
   final List<Genre>? genres;
+  final String? backgroundImage;
 
   factory GameModel.fromJson(String str) => GameModel.fromMap(json.decode(str));
 
@@ -22,17 +22,17 @@ class GameModel {
   factory GameModel.fromMap(Map<String, dynamic> json) => GameModel(
         id: json["id"],
         name: json["name"],
-        backgroundImage: json["background_image"],
         metacritic: json["metacritic"],
         genres: List<Genre>.from(json["genres"].map((x) => Genre.fromMap(x))),
+        backgroundImage: json["background_image"],
       );
 
   Map<String, dynamic> toMap() => {
         "id": id,
         "name": name,
-        "background_image": backgroundImage,
         "metacritic": metacritic,
         "genres": List<dynamic>.from(genres!.map((x) => x.toMap())),
+        "background_image": backgroundImage,
       };
 }
 
